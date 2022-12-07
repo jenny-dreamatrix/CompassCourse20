@@ -1,0 +1,40 @@
+<!--Doctype is a TAG. html is an Attribute-->
+<!DOCTYPE html>
+<!--some attributes must follow with a value to take action-->
+<html lang="en de">
+
+<!--Machine Part code-->
+<head>
+    <meta charset="UTF-8">
+    <title>My Portfolio - Jenny Dreger</title>
+    <!--    bridge between html <=> css-->
+    <link rel="stylesheet" href="/styles/style.css">
+    <script src="/scripts/backend.js"></script>
+</head>
+
+<!--Human Part code-->
+<body>
+<!--Page Main Wrapper-->
+<div class="body">
+    <div class="navbar">Nav Bar</div>
+    <div class="pagebody">
+        <div class="banner">
+            <h4>Hi, my name is Jenny Dreger, a developer for Web Solutions</h4>
+            <p>Writing clean code for fast and clear design websites is what I do</p>
+        </div>
+
+        <!-- ToDoList Body -->
+        <input type="text" placeholder="Enter a New ToDo" class="myInput">
+        <button onclick="AddToDo()">Add new ToDo</button>           <!-- onclick = attribute, button will trigger a javascript function "AddToDo" we need to define -->
+        <ul class="myUL">            <!-- ul = unordered list -->
+            <li>Dummy ToDo</li>     <!-- li = list item -->
+        </ul>
+    </div>
+    <div class="leftsidebar">Left Side Bar</div>
+    <div class="rightsidebar">Right Side Bar</div>
+    <div class="footer">Footer</div>
+
+
+</div>
+</body>
+</html>

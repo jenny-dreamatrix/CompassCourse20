@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    }
+
+:root {
+    --bg:#594545;
+    --fg:#9E7676;
+    --pC:#FFF8EA;
+    --sC:#815B5B;
+    --c1:#65647C;
+    --c2:#8B7E74;
+    --c3:#C7BCA1;
+}
+
+
+
+.body {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);     /* 12  Spalten und Einteilung / Größeneinheit in Fraktionen, passen sich automatisch an unterschiedliche Bildschirmgrößen an - immer im Verhältnis ! keine absoluten Größen */
+    grid-template-rows: repeat(12, 1fr);
+    background-color: pink;
+    height: 100vh;                              /* 100 % of viewport height -> eine komplette bildschirmgröße, passt sich automatisch an unterschiedlich große bildschirme an, im Verhältnis */
+}
+
+
+/*Drawing the space for the NavBar with telling the element from which column to which column does it need to exist*/
+.navbar {
+    grid-column: 1 / span 12;
+    grid-row: 1 / span 1;
+    background-color: var(--bg);
+}
+
+.leftsidebar {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 10;          /* starts at row 2 and duplicates itself 10 times, so it ends at row 11 -> row 1 is for the navbar and row 12 is for the footer */
+    background-color: var(--fg);
+}
+
+.rightsidebar {
+    grid-column: 12 / span 1;
+    grid-row: 2 / span 10;
+    background-color: var(--fg);
+}
+
+.pagebody {
+    grid-row: 2 / span 10;
+    grid-column: 2 / span 10;
+    background-color: var(--pC);
+}
+
+/* style for page body */
+.pagebody {
+    background: radial-gradient(circle at top, var(--bg), var(--fg), var(--pC), transparent), radial-gradient(circle at bottom, var(--c1), var(--c2), var(--c3), transparent);
+    -webkit-animation: AnimatedBG 12s ease-in-out infinite;
+    background-size: 500% 500%;         /* background frame is invisible, stretched to 500% x and y, der page body ist wie ein fenster durch das man einen ausschnitt des ganzen backgrounds sieht, der 500% vergrößert ist */
+}
+
+
+.banner {
+    text-align: center;
+    font-size: 15pt;
+    font-family: 'Merriweather', serif;
+}
+
+
+.footer {
+    grid-column: 1 / span 12;       /* starts at first column and duplicates itself 12 times -> so over 12 columns -> because we have 12 columns in total in the body, its the full length */
+    grid-row: 12 / span 1;
+    background-color: var(--bg);
+}
+
+@-webkit-keyframes AnimatedBG {                 /* keyframe = changing point in the entire length of the animation */
+    0%{                                         /* start zeitpunkt - 0% der Zeitspanne */
+        background-position: 0 50%;
+    }
+    50%{                                        /* Hälfte der Zeitspanne */
+        background-position: 120% 100%;
+    }
+    100%{                                       /* Ende der Zeitspanne -> Animation muss am Ende wieder genauso sein wie am Start, damit es fließt, wenn ein neuer Durchgang startet */
+        background-position: 0 50%;
+    }
+}
+
+
